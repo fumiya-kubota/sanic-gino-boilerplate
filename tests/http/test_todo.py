@@ -9,14 +9,14 @@ async def test_todo_api(app, test_cli):
     """
 
     # GET
-    resp = await test_cli.get('/api/v1/todo')
+    resp = await test_cli.get('/api/todo')
     assert resp.status == 200
     resp_json = await resp.json()
     assert len(resp_json['todo_list']) == 0
 
     # POST
     resp = await test_cli.post(
-        '/api/v1/todo',
+        '/api/todo',
         data=json.dumps({
             'name': 'new_todo',
         }),
@@ -25,7 +25,7 @@ async def test_todo_api(app, test_cli):
     assert resp.status == 201
 
     # GET
-    resp = await test_cli.get('/api/v1/todo')
+    resp = await test_cli.get('/api/todo')
     assert resp.status == 200
     resp_json = await resp.json()
     assert len(resp_json['todo_list']) == 1
@@ -33,12 +33,12 @@ async def test_todo_api(app, test_cli):
 
     # DELETE
     resp = await test_cli.delete(
-        '/api/v1/todo/1',
+        '/api/todo/1',
     )
     assert resp.status == 200
 
     # GET
-    resp = await test_cli.get('/api/v1/todo')
+    resp = await test_cli.get('/api/todo')
     assert resp.status == 200
     resp_json = await resp.json()
     assert len(resp_json['todo_list']) == 0

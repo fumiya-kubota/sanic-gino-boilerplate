@@ -1,5 +1,6 @@
 from sanic import Blueprint
-from .v1 import bp as v1_bp
+from .hello import hello
+from .todo import todo
 
 
-api = Blueprint.group(v1_bp, url_prefix='/api')
+api = Blueprint.group(hello, todo, url_prefix='/api')
