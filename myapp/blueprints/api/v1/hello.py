@@ -1,5 +1,4 @@
-from sanic import Blueprint
-from sanic import response
+from sanic import Blueprint, response
 
 hello = Blueprint('hello_api', url_prefix='/hello')
 

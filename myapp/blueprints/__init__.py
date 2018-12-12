@@ -1,6 +1,6 @@
 from sanic import Blueprint
 from .api import api
-from .pages  import pages
+from .pages import pages
 
 
 bp = Blueprint.group(api, pages)

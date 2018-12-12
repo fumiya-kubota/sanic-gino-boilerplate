@@ -4,4 +4,6 @@ services:
     image: postgres:alpine
     restart: always
     environment:
-      POSTGRES_USER: 'myapp'
+      POSTGRES_USER: myapp
+    ports:
+      - 5432:5432
